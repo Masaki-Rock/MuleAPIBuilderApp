@@ -33,6 +33,15 @@ public class AppTest {
 		String environmentApiId = param.getId();
 		App.deleteAPIInstance(environmentApiId);
 	}
+	
+	@Ignore @Test
+	public void checkAndCreateSLATiers() throws AppException {
+
+		APIManagerAPICaller caller = new APIManagerAPICaller();
+		APIAssetsResponse res = caller.findAPIInstance();
+		App.checkAndCreateSLATiers(res.getId());
+	}
+
 
 	@Ignore @Test
 	public void savePolicies() throws AppException {
@@ -47,12 +56,26 @@ public class AppTest {
 		APIAssetsResponse res = caller.findAPIInstance();
 		App.deletePolicies(res.getId());
 	}
+	
+	@Ignore @Test
+	public void checkAndSavePolicies() throws AppException {
+		APIManagerAPICaller caller = new APIManagerAPICaller();
+		APIAssetsResponse res = caller.findAPIInstance();
+		App.checkAndCreatePolicies(res.getId());
+	}
+	
+	@Ignore @Test
+	public void checkAndCreateAlerts() throws AppException {
+		APIManagerAPICaller caller = new APIManagerAPICaller();
+		APIAssetsResponse res = caller.findAPIInstance();
+		App.checkAndCreateAlerts(res.getId());
+	}
 
 	@Ignore @Test
 	public void saveApplication() throws AppException {
 		App.createApplication();
 	}
-
+	
 	@Ignore @Test
 	public void updateApplication() throws AppException {
 		App.updateApplication();

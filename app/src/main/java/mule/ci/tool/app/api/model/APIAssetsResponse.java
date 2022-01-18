@@ -35,8 +35,9 @@ public class APIAssetsResponse {
 		for (Map<String, Object> asset : this.assets) {
 			List<Map<String, Object>> apis = (List<Map<String, Object>>) asset.get("apis");
 			for (Map<String, Object> api : apis) {
+				String assetId = (String) api.get("assetId");
 				String instanceLabel = (String) api.get("instanceLabel");
-				if (StringUtils.equals(Const.API_INSTANCE_LABEL, instanceLabel)) {
+				if (StringUtils.equals(Const.ASSET_ID, assetId) && StringUtils.equals(Const.API_INSTANCE_LABEL, instanceLabel)) {
 					return "" + api.get("id");
 				}
 			}

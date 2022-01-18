@@ -127,7 +127,7 @@ public class APIManagerAPICaller {
 		log.trace("before {}.",res.getId());
 		APIInstanceResponse response = null;
 		if (StringUtils.isNotBlank(res.getId())) {
-			response = updateAPIInstance(instanceLabel, assetId);
+			response = updateAPIInstance(res.getId(), param.getVersion());
 			return response;
 		}
 		response = saveAPIInstance(param.getGroupId(), param.getAssetId(),

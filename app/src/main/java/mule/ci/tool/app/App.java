@@ -170,19 +170,8 @@ public class App {
 				createAlerts(environmentApiId);
 				createApplication();
 			}
-			if (line.hasOption("runtimeAlerts")) {
-				createRuntimeAlerts();
-			}
 			if (line.hasOption("api")) {
 				createAPIInstance();
-			}
-			if (line.hasOption("application")) {
-				createApplication();
-			}
-			if (line.hasOption("alerts")) {
-				APIAssetsResponse param = new APIManagerAPICaller().findAPIInstance();
-				String environmentApiId = param.getId();
-				createAlerts(environmentApiId);
 			}
 			if (line.hasOption("policies")) {
 				APIAssetsResponse param = new APIManagerAPICaller().findAPIInstance();
@@ -194,7 +183,17 @@ public class App {
 				String environmentApiId = param.getId();
 				createSLATiers(environmentApiId);
 			}
-
+			if (line.hasOption("alerts")) {
+				APIAssetsResponse param = new APIManagerAPICaller().findAPIInstance();
+				String environmentApiId = param.getId();
+				createAlerts(environmentApiId);
+			}
+			if (line.hasOption("runtimeAlerts")) {
+				createRuntimeAlerts();
+			}
+			if (line.hasOption("application")) {
+				createApplication();
+			}
 			log.info("creation function finished!!");
 		}
 	}
@@ -212,19 +211,8 @@ public class App {
 				checkAndCreateAlerts(environmentApiId);
 				upsertApplication();
 			}
-			if (line.hasOption("runtimeAlerts")) {
-				checkAndCreateRuntimeAlerts();
-			}
 			if (line.hasOption("api")) {
 				checkAndSaveAPIInstance();
-			}
-			if (line.hasOption("application")) {
-				upsertApplication();
-			}
-			if (line.hasOption("alerts")) {
-				APIAssetsResponse param = new APIManagerAPICaller().findAPIInstance();
-				String environmentApiId = param.getId();
-				checkAndCreateAlerts(environmentApiId);
 			}
 			if (line.hasOption("policies")) {
 				APIAssetsResponse param = new APIManagerAPICaller().findAPIInstance();
@@ -236,7 +224,17 @@ public class App {
 				String environmentApiId = param.getId();
 				checkAndCreateSLATiers(environmentApiId);
 			}
-
+			if (line.hasOption("alerts")) {
+				APIAssetsResponse param = new APIManagerAPICaller().findAPIInstance();
+				String environmentApiId = param.getId();
+				checkAndCreateAlerts(environmentApiId);
+			}
+			if (line.hasOption("runtimeAlerts")) {
+				checkAndCreateRuntimeAlerts();
+			}
+			if (line.hasOption("application")) {
+				upsertApplication();
+			}
 			log.info("update process finished!!");
 		}
 	}
